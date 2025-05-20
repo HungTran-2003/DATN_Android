@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.base.VerifyOTPFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back"
+            android:background="@android:color/transparent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verification Code"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginTop="32dp"
+                android:textColor="@color/text_color_white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chúng tôi đã gửi mã xác minh đến địa chỉ email của bạn"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:textColor="@color/text_color_white"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="32dp">
+
+                <EditText
+                    android:id="@+id/cell1"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:hint="-"
+                    android:inputType="number"
+                    android:textSize="24sp"
+                    android:gravity="center"
+                    android:background="@drawable/rounded_corner"/>
+
+                <EditText
+                    android:id="@+id/cell2"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:hint="-"
+                    android:inputType="number"
+                    android:textSize="24sp"
+                    android:gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/rounded_corner"/>
+
+                <EditText
+                    android:id="@+id/cell3"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:hint="-"
+                    android:inputType="number"
+                    android:textSize="24sp"
+                    android:gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/rounded_corner"/>
+
+                <EditText
+                    android:id="@+id/cell4"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:textSize="24sp"
+                    android:hint="-"
+                    android:gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/rounded_corner"
+                    android:inputType="number"/>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/confirm_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Confirm"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/rounded_button_primary"
+                android:textColor="@android:color/white"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

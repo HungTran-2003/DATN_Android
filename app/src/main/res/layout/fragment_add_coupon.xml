@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.admin.AddCouponFragment"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thêm Mã giảm giá mới"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Card container cho form với màu tối -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="#141833"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <!-- Tên Coupon -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilCouponName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:hint="Tên mã giảm giá"
+                    app:boxStrokeColor="#A4A7BC"
+                    app:hintTextColor="#A4A7BC"
+                    android:textColorHint="#8087A4"
+                    app:boxStrokeWidth="1dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCouponName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="#141833" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Giảm giá -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilDiscount"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:hint="Giảm giá (%)"
+                    app:boxStrokeColor="#A4A7BC"
+                    app:hintTextColor="#A4A7BC"
+                    android:textColorHint="#8087A4"
+                    app:boxStrokeWidth="1dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDiscount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="#141833" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Số lượng -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSelectCinema"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_button_primary"
+                    android:text="Chọn Rạp chiếu phim"
+                    android:textColor="@color/text_color_white" />
+
+                <TextView
+                    android:id="@+id/tvSelectedCinema"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color_white"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp"
+                    />
+
+
+                <!-- Ngày hết hạn -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ngày hết hạn"
+                    android:textColor="#A4A7BC"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnSelectDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Chọn ngày"
+                        android:textAllCaps="false"
+                        android:textColor="@color/text_color_white"
+                        android:background="@drawable/rounded_button_primary" />
+
+                    <TextView
+                        android:id="@+id/tvSelectedDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="16sp"
+                        android:paddingStart="16dp"
+                        android:textColor="#FFFFFF"
+                        tools:text="31/12/2025" />
+                </LinearLayout>
+
+                <!-- Mô tả (tùy chọn) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilDescription"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:hint="Mô tả"
+                    app:boxStrokeColor="#A4A7BC"
+                    app:hintTextColor="#A4A7BC"
+                    android:textColorHint="#8087A4"
+                    app:boxStrokeWidth="1dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"
+                        android:gravity="top"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="#141833" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Giới hạn sử dụng (tùy chọn) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilUsageLimit"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:hint="Giới hạn sử dụng"
+                    app:boxStrokeColor="#A4A7BC"
+                    app:hintTextColor="#A4A7BC"
+                    android:textColorHint="#8087A4"
+                    app:boxStrokeWidth="1dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etUsageLimit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="#141833" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Nút lưu và hủy -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnCancel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:text="Hủy"
+                        android:textAllCaps="false"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:textColor="#A4A7BC"
+                        app:strokeColor="#A4A7BC" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnSave"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="Lưu"
+                        android:textAllCaps="false"
+                        android:textColor="@color/text_color_white"
+                        android:background="@drawable/button_background" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

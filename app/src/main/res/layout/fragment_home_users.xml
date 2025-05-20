@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.admin.HomeUsersFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <EditText
+                    android:id="@+id/findMovieEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:ems="10"
+                    android:hint="Tên người dùng"
+                    android:inputType="text"
+                    android:textSize="18sp"
+                    android:background="@drawable/border_white"
+                    android:padding="10dp"/>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/searchButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_search" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/filterButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_filter" />
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            android:background="@color/background">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewItems"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/custom_list_item_user" />
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/filterLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Bộ lọc"
+                        android:textColor="@color/text_color_white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:textColorHint="#80FFFFFF"
+                        app:boxBackgroundColor="#26335D"
+                        app:boxStrokeColor="#3F51B5"
+                        app:hintTextColor="#80FFFFFF">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_cinema_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Tên Rạp chiếu"
+                            android:inputType="text"
+                            android:textColor="@color/text_color_white" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="Thành phố:"
+                            android:textColor="@color/text_color_white"
+                            android:textSize="16sp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnSelectCity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:backgroundTint="#3F51B5"
+                            android:drawableEnd="@drawable/ic_calendar"
+                            android:text="Chọn thành phố"
+                            android:textColor="@color/text_color_white" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/buttonApplyFilter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Áp dụng bộ lọc" />
+
+                    <Button
+                        android:id="@+id/buttonClearFilter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Xóa bộ lọc" />
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

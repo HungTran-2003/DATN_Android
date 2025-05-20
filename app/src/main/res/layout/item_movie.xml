@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:orientation="vertical"
+    android:background="#141B3D"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/ivMoviePoster"
+        android:layout_width="120dp"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/tvMovieTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="Aladdin" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RatingBar
+            android:id="@+id/rbMovieRating"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="4.5"
+            android:progressTint="#FFC107"
+            android:secondaryProgressTint="#636363"
+            android:stepSize="0.1"/>
+
+        <TextView
+            android:id="@+id/tvReviewCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="#9E9E9E"
+            android:textSize="12sp"
+            tools:text="812 Reviews" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_clock" />
+
+        <TextView
+            android:id="@+id/tvMovieDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            tools:text="2h 8min" />
+    </LinearLayout>
+
+</LinearLayout>

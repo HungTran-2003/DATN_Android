@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="#141B3D">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/iv_movie_poster"
+            android:layout_width="110dp"
+            android:layout_height="160dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/border_white"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/tv_movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_movie_poster"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="The Avengers: Endgame" />
+
+        <TextView
+            android:id="@+id/tv_movie_duration_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Thời lượng"
+            android:textSize="14sp"
+            android:textColor="#8F94B4"
+            app:layout_constraintStart_toEndOf="@+id/iv_movie_poster"
+            app:layout_constraintTop_toBottomOf="@+id/tv_movie_title" />
+
+        <TextView
+            android:id="@+id/tv_movie_duration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="#CED2EE"
+            android:textSize="14sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_movie_duration_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_movie_duration_label"
+            tools:text="181 minutes" />
+
+        <TextView
+            android:id="@+id/tv_movie_rating_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:text="Đánh giá"
+            android:textSize="14sp"
+            android:textColor="#8F94B4"
+            app:layout_constraintStart_toEndOf="@+id/iv_movie_poster"
+            app:layout_constraintTop_toBottomOf="@+id/tv_movie_duration_label" />
+
+        <RatingBar
+            android:id="@+id/rb_movie_rating"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:stepSize="0.1"
+            android:progressTint="#FFC107"
+            android:secondaryProgressTint="#636363"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_movie_rating_label"
+            app:layout_constraintStart_toEndOf="@+id/tv_movie_rating_label"
+            app:layout_constraintTop_toTopOf="@+id/tv_movie_rating_label"
+            tools:rating="4.5" />
+
+        <TextView
+            android:id="@+id/tv_movie_rating_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:textColor="#CED2EE"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/rb_movie_rating"
+            app:layout_constraintStart_toEndOf="@+id/rb_movie_rating"
+            app:layout_constraintTop_toTopOf="@+id/rb_movie_rating"
+            tools:text="4.5/5" />
+
+        <TextView
+            android:id="@+id/tv_movie_status_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            android:text="Trạng thái"
+            android:textSize="14sp"
+            android:textColor="#8F94B4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_movie_poster"
+            app:layout_constraintTop_toBottomOf="@+id/tv_movie_rating_label" />
+
+        <TextView
+            android:id="@+id/tv_movie_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/status_background"
+            android:paddingStart="10dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="4dp"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_movie_status_label"
+            app:layout_constraintStart_toEndOf="@+id/tv_movie_status_label"
+            app:layout_constraintTop_toTopOf="@+id/tv_movie_status_label"
+            tools:background="#4CAF50"
+            tools:text="Đang chiếu" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

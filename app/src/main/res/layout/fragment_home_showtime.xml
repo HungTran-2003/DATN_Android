@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.admin.HomeFilmFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <EditText
+                    android:id="@+id/findMovieEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:ems="10"
+                    android:hint="Tên phim"
+                    android:inputType="text"
+                    android:textColor="@color/text_color_white"
+                    android:textColorHint="@color/text_color_white"
+                    android:textSize="18sp"
+                    android:background="@drawable/border_white"
+                    android:padding="10dp"/>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/searchButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_search" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/filterButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_filter" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/addButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_add" />
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            android:background="@color/background">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewItems"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/custom_item_movie_list" />
+
+            <LinearLayout
+                android:id="@+id/filterLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bộ lọc"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trường 1:" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trường 2:" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"/>
+
+                <Button
+                    android:id="@+id/buttonApplyFilter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Áp dụng bộ lọc" />
+                <Button
+                    android:id="@+id/buttonClearFilter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Xóa bộ lọc" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/addMovieLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone"
+                android:background="@color/background"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nhập tên phim bạn muốn chiếu"
+                    android:textSize="18sp"
+                    android:textColor="@color/text_color_white"
+                    android:layout_marginBottom="16dp"/>
+
+                <AutoCompleteTextView
+                    android:id="@+id/movieNameAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:hint="Name"
+                    android:textColor="@color/text_color_white"
+                    android:textColorHint="@color/text_color_white"
+                    android:padding="10dp"
+                    android:background="@drawable/border_white"
+                    android:layout_marginBottom="12dp"
+                    />
+
+            </LinearLayout>
+
+
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

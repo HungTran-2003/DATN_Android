@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home_film"
+        android:icon="@drawable/ic_movie"
+        android:title="Phim" />
+    <item
+        android:id="@+id/nav_home_showtime"
+        android:icon="@drawable/ic_showtime"
+        android:title="Suất chiếu" />
+    <item
+        android:id="@+id/nav_home_cinema"
+        android:icon="@drawable/ic_cinema"
+        android:title="Rạp chiếu" />
+    <item
+        android:id="@+id/nav_home_user"
+        android:icon="@drawable/ic_user"
+        android:title="Người dùng" />
+    <item
+        android:id="@+id/nav_home_coupon"
+        android:icon="@drawable/ic_coupon"
+        android:title="Ưu đãi" />
+</menu>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.admin.AddMovieFragment">
+
+    <ViewSwitcher
+        android:id="@+id/viewSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+<!--        <include layout="@layout/loading" />-->
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/imageBackdrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="@drawable/border_white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:scaleType="centerCrop" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp">
+
+                    <ImageView
+                        android:id="@+id/imageViewPoster"
+                        android:layout_width="80dp"
+                        android:layout_height="100dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/border_white"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:scaleType="centerCrop" />
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutTitleInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@id/imageViewPoster"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/movieName"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:backgroundTint="@android:color/white"
+                                android:ems="10"
+                                android:hint="Tên Phim"
+                                android:textColor="@color/text_color_white"
+                                android:textColorHint="@color/text_color_white"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/releaseYear"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:backgroundTint="@android:color/white"
+                                android:ems="5"
+                                android:hint="(2023)"
+                                android:textColor="@color/text_color_white"
+                                android:textColorHint="@color/text_color_white"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/duration"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:layout_weight="1"
+                                android:backgroundTint="@android:color/white"
+                                android:ems="10"
+                                android:hint="120 phút"
+                                android:singleLine="true"
+                                android:textColor="@color/text_color_white"
+                                android:textColorHint="@color/text_color_white"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/type"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:layout_weight="1"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:text="P-Phổ biến"
+                                android:textColor="@color/text_color_white"
+                                android:textSize="16sp" />
+
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/language"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:backgroundTint="@android:color/white"
+                            android:ems="10"
+                            android:hint="Tiếng Anh"
+                            android:singleLine="true"
+                            android:textColor="@color/text_color_white"
+                            android:textColorHint="@color/text_color_white"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/TMDBScore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:backgroundTint="@android:color/white"
+                            android:ems="10"
+                            android:hint="TMDB: 7.5"
+                            android:singleLine="true"
+                            android:textColor="@color/text_color_white"
+                            android:textColorHint="@color/text_color_white"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đạo diễn:"
+                        android:textColor="@color/text_color_white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/director"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/white"
+                        android:hint="Nhập tên đạo diễn"
+                        android:textColor="@color/text_color_white"
+                        android:textColorHint="@color/text_color_white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Diễn viên:"
+                        android:textColor="@color/text_color_white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/actors"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/white"
+                        android:hint="Nhập tên diễn viên (cách nhau bằng dấu phẩy)"
+                        android:textColor="@color/text_color_white"
+                        android:textColorHint="@color/text_color_white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Thể loại:"
+                        android:textColor="@color/text_color_white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/genre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/white"
+                        android:hint="Nhập thể loại (cách nhau bằng dấu phẩy)"
+                        android:textColor="@color/text_color_white"
+                        android:textColorHint="@color/text_color_white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Thông tin phim:"
+                        android:textColor="@color/text_color_white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/overview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/white"
+                        android:gravity="top|start"
+                        android:hint="Nhập thông tin tóm tắt về bộ phim"
+                        android:minHeight="100dp"
+                        android:textColor="@color/text_color_white"
+                        android:textColorHint="@color/text_color_white" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btCancel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:background="@drawable/rounded_button_primary"
+                            android:text="HUỶ"
+                            android:textColor="@color/text_color_white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/buttonAddMovie"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:background="@drawable/rounded_button_primary"
+                            android:text="Thêm Phim"
+                            android:textColor="@color/text_color_white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+    </ViewSwitcher>
+
+</FrameLayout>

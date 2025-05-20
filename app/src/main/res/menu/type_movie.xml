@@ -1,0 +1,6 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/type1" android:title="P - Phim phù hợp cho mọi lứa tuổi" />
+    <item android:id="@+id/type2" android:title="C13 - Cấm khán giả dưới 13 tuổi" />
+    <item android:id="@+id/type3" android:title="C16 - Cấm khán giả dưới 16 tuổi" />
+    <item android:id="@+id/type4" android:title="C18 - Cấm khán giả dưới 18 tuổi" />
+</menu>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.base.WellcomeActivity"
+    android:background="@color/background">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="32dp">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Chào mừng bạn đến với CineX"
+            android:textColor="@color/text_color_white"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:text="Hãy lựa chọn thành phố và cơ sở của rạp mà bạn đang quan tâm"
+            android:textColor="@color/text_color_white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:text="CHỌN THÀNH PHỐ"
+            android:textColor="#AEEEEE"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <Spinner
+            android:id="@+id/citys"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Hoàn tất"
+            android:textSize="30sp"
+            android:background="@drawable/rounded_button_primary"
+            android:padding="8dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:text="Chúc bạn có một trải nghiệm tuyệt vời khi sử dụng ứng dụng!\n Cảm ơn bạn đã đồng hành cùng chúng tôi!"
+            android:textColor="@color/text_color_white"
+            android:textSize="16sp"
+            android:layout_marginTop="32dp"/>
+
+
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

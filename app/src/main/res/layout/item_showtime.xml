@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="#141937">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <!-- Ảnh phim -->
+        <ImageView
+            android:id="@+id/iv_movie_poster"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <!-- Tên phim -->
+        <TextView
+            android:id="@+id/tv_movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_movie_poster"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Tên phim" />
+
+        <!-- Thông tin số vé đã bán -->
+        <TextView
+            android:id="@+id/tv_tickets_sold_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Số vé đã bán:"
+            android:textSize="14sp"
+            android:textColor="#8F90A6"
+            app:layout_constraintStart_toEndOf="@id/iv_movie_poster"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_title" />
+
+        <TextView
+            android:id="@+id/tv_tickets_sold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_tickets_sold_label"
+            app:layout_constraintTop_toTopOf="@id/tv_tickets_sold_label"
+            tools:text="45" />
+
+        <!-- Thông tin thời gian chiếu -->
+        <TextView
+            android:id="@+id/tv_start_time_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Thời gian chiếu:"
+            android:textSize="14sp"
+            android:textColor="#8F90A6"
+            app:layout_constraintStart_toEndOf="@id/iv_movie_poster"
+            app:layout_constraintTop_toBottomOf="@id/tv_tickets_sold_label" />
+
+        <TextView
+            android:id="@+id/tv_start_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_start_time_label"
+            app:layout_constraintTop_toTopOf="@id/tv_start_time_label"
+            tools:text="20:30 - 12/05/2025" />
+
+        <!-- Trạng thái ShowTime -->
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/status_background"
+            android:paddingStart="12dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="4dp"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/iv_movie_poster"
+            app:layout_constraintTop_toBottomOf="@id/tv_start_time_label"
+            tools:background="@drawable/status_background"
+            tools:text="Sắp chiếu" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
