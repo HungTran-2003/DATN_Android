@@ -12,7 +12,7 @@ interface BookingApiService  {
     @POST(ApiRoutes.Booking.ADD)
     suspend fun createBooking(@Body booking: Booking): Response<Map<String, String>>
 
-    @GET(ApiRoutes.Booking.GET_ALL_BY_USER)
+    @GET(ApiRoutes.Booking.GET_BOOKING_NOT_SHOWING)
     suspend fun getAllByUser(@Path("userId") userId: Int): Response<List<BookingDTO>>
 
     @GET(ApiRoutes.Booking.GET_USED)

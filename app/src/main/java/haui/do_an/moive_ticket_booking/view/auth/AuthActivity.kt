@@ -12,6 +12,7 @@ import haui.do_an.moive_ticket_booking.R
 import haui.do_an.moive_ticket_booking.view.base.ChangePasswordFragment
 import haui.do_an.moive_ticket_booking.view.base.VerifyOTPFragment
 import haui.do_an.moive_ticket_booking.view.dialog.NetworkErrorDialog
+import haui.do_an.moive_ticket_booking.view.user.ProfileFragment
 import haui.do_an.moive_ticket_booking.viewmodel.AuthViewModel
 import javax.inject.Inject
 

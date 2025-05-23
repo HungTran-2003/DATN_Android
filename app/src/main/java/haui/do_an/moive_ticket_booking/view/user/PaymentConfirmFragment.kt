@@ -152,6 +152,7 @@ class PaymentConfirmFragment : Fragment() {
         }
         val dialog = builder.create()
         dialog.show()
+        viewModel.clearErrorMessage()
 
     }
 
@@ -209,4 +210,9 @@ class PaymentConfirmFragment : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.CouponCode = null
+        viewModel.discound = null
+    }
 }

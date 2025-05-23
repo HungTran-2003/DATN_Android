@@ -31,5 +31,9 @@ interface UserAPIService {
     @GET(ApiRoutes.User.GETID)
     suspend fun getIdByEmail(@Query("email") email: String): Response<Int>
 
+    @GET(ApiRoutes.User.PROFILE)
+    suspend fun getProfile(@Query("userId") userId: Int): Response<UserDTO>
 
+    @POST(ApiRoutes.User.UPDATE)
+    suspend fun updateProfile(@Body UserDTO: UserDTO): Response<String>
 }

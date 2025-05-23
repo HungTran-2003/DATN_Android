@@ -104,6 +104,7 @@ class AuthViewModel @Inject constructor(
     fun clearMessage(){
         _errorMessage.postValue("")
         _otpsend.postValue("")
+
     }
 
 

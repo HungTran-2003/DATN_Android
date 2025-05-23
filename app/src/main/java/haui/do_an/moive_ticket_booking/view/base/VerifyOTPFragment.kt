@@ -1,5 +1,6 @@
 package haui.do_an.moive_ticket_booking.view.base
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,19 +9,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import dagger.hilt.android.AndroidEntryPoint
 import haui.do_an.moive_ticket_booking.R
 import haui.do_an.moive_ticket_booking.databinding.FragmentVerifyOTPBinding
 import haui.do_an.moive_ticket_booking.view.auth.AuthActivity
+import haui.do_an.moive_ticket_booking.view.user.UserActivity
 import haui.do_an.moive_ticket_booking.viewmodel.AuthViewModel
 import haui.do_an.moive_ticket_booking.viewmodel.UserViewModel
+import javax.inject.Inject
 import kotlin.math.log
 
+@AndroidEntryPoint
 class VerifyOTPFragment: Fragment() {
 
     private val viewModel: AuthViewModel by activityViewModels()
     private val viewModelUser: UserViewModel by activityViewModels()
 
     private lateinit var binding: FragmentVerifyOTPBinding
+
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
 
 
     private var otpFailed: Int = 0
@@ -64,10 +72,14 @@ class VerifyOTPFragment: Fragment() {
                 }
                 "forgotPassword" ->{
                     (activity as AuthActivity).backToFragmentBefore()
+                    Log.d("VerifyOTPFragment", "backToFragmentBefore")
+                }
+                "profile" -> {
+                    (activity as UserActivity).backToFragmentBefore()
+                    Log.d("VerifyOTPFragment", "backToSetting")
                 }
                 else -> {
                     Toast.makeText(requireContext(), "lỗi", Toast.LENGTH_SHORT).show()
-                    (activity as AuthActivity).backToFragmentBefore()
                 }
             }
 
@@ -118,6 +130,11 @@ class VerifyOTPFragment: Fragment() {
                 val bundle = Bundle()
                 bundle.putString("function", "forgotPassword")
                 (activity as AuthActivity).navigateToChangePassword(bundle)
+            }
+
+            "profile" ->{
+                viewModelUser.getProfile(sharedPreferences.getInt("userId", 0))
+                (activity as UserActivity).navigateToProfile()
             }
             else -> {
                 Toast.makeText(requireContext(), "lỗi", Toast.LENGTH_SHORT).show()

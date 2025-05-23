@@ -12,6 +12,7 @@ import haui.do_an.moive_ticket_booking.DTO.SeatDTO
 import haui.do_an.moive_ticket_booking.DTO.ShowTimeDTO
 import haui.do_an.moive_ticket_booking.DTO.TicketDTO
 import haui.do_an.moive_ticket_booking.DTO.TicketInfo
+import haui.do_an.moive_ticket_booking.DTO.UserDTO
 import haui.do_an.moive_ticket_booking.model.Booking
 import haui.do_an.moive_ticket_booking.model.ShowTime
 import haui.do_an.moive_ticket_booking.repository.BookingRepository
@@ -84,6 +85,9 @@ class UserViewModel @Inject constructor(
 
     private val _url = MutableLiveData<String>()
     val url: LiveData<String> = _url
+
+    private val _profile = MutableLiveData<UserDTO>()
+    val profile: LiveData<UserDTO> = _profile
 
     var CouponCode: String? = null
     var discound: Double? = null
@@ -307,6 +311,30 @@ class UserViewModel @Inject constructor(
             try {
                 val result = userRepository.getIdByEmail(email)
                 _Message.postValue(result.toString())
+            } catch (e: Exception) {
+                _error.postValue(e.message.toString())
+            }
+        }
+    }
+
+    fun getProfile(userId: Int){
+        _error.postValue(null)
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val result = userRepository.getProfile(userId)
+                _profile.postValue(result)
+            } catch (e: Exception) {
+                _error.postValue(e.message.toString())
+            }
+        }
+    }
+
+    fun updateProfile(userDTO: UserDTO){
+        _error.postValue(null)
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val result = userRepository.updateProfile(userDTO)
+                _Message.postValue(result)
             } catch (e: Exception) {
                 _error.postValue(e.message.toString())
             }

@@ -20,6 +20,7 @@ import androidx.core.view.WindowCompat
 import com.example.cinemaapp.SelectSeatFragment
 import haui.do_an.moive_ticket_booking.view.auth.AuthActivity
 import haui.do_an.moive_ticket_booking.view.base.FilmDetailFragment
+import haui.do_an.moive_ticket_booking.view.base.VerifyOTPFragment
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -29,6 +30,8 @@ class UserActivity : AppCompatActivity() {
 
     @Inject
     lateinit var sharedPreferences: SharedPreferences
+
+    var userName: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +43,7 @@ class UserActivity : AppCompatActivity() {
             insets
         }
         WindowCompat.getInsetsController(window, window.decorView)?.isAppearanceLightStatusBars = false
-
+        userName = intent.getStringExtra("username").toString()
         binding = ActivityUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -142,8 +145,7 @@ class UserActivity : AppCompatActivity() {
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
-        binding.navView.getHeaderView(0).findViewById<TextView>(R.id.tvUserName).text = intent.getStringExtra("username").toString()
-        Log.d("Username", intent.getStringExtra("username").toString())
+        binding.navView.getHeaderView(0).findViewById<TextView>(R.id.tvUserName).text = userName
 
         binding.navView.setNavigationItemSelectedListener { item ->
             clickItemInNavView(item.itemId)
@@ -188,6 +190,26 @@ class UserActivity : AppCompatActivity() {
             .replace(R.id.fragmentContainer, reviewFragment)
             .addToBackStack("booking")
             .commit()
+    }
+
+    fun navigateToVerifyOTP(bundle: Bundle){
+        val sentOTPFragment = VerifyOTPFragment()
+        sentOTPFragment.arguments = bundle
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, sentOTPFragment)
+            .addToBackStack("review")
+            .commit()
+    }
+
+    fun navigateToProfile() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, ProfileFragment())
+            .addToBackStack("login")  // Đưa vào back stack để quay lại được
+            .commit()
+    }
+
+    fun backToFragmentBefore(){
+        supportFragmentManager.popBackStack()
     }
 
     private fun clickItemInNavView(item: Int){

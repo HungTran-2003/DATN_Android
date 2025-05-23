@@ -1,10 +1,9 @@
 package haui.do_an.moive_ticket_booking.api
 
 object ApiRoutes {
-    const val BASE_URL = "http://192.168.1.2:8080"
-//    const val BASE_URL = "https://d789-113-185-50-55.ngrok-free.app"
+//    const val BASE_URL = "http://192.168.1.16:8080"
+    const val BASE_URL = "https://stingray-humane-gator.ngrok-free.app"
     const val TMDB_URL = "https://api.themoviedb.org/3/"
-    const val PAYOS = "https://api-merchant.payos.vn"
 
     object Base{
         const val GET_OTP = "/api/otp"
@@ -28,6 +27,8 @@ object ApiRoutes {
         const val GETALL = "/api/users/getAll"
         const val CHANGE_PASSWORD = "/api/users/change-password"
         const val GETID = "/api/users/email"
+        const val PROFILE = "/api/users/profile"
+        const val UPDATE = "/api/users/update-profile"
     }
 
     object TMDB{
@@ -68,6 +69,7 @@ object ApiRoutes {
         const val DETAIL = "/api/bookings/{id}"
         const val GET_ALL_BY_USER = "/api/bookings/getAll/{userId}"
         const val GET_USED = "/api/bookings/getBookingUsed/{userId}"
+        const val GET_BOOKING_NOT_SHOWING = "/api/bookings/getBookingNotShowing/{userId}"
 
     }
 

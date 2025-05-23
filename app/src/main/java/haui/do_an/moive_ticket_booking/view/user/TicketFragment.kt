@@ -81,6 +81,7 @@ class TicketFragment : Fragment() {
         }
         val dialog = builder.create()
         dialog.show()
+        viewModel.clearErrorMessage()
     }
 
 }

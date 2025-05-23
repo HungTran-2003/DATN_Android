@@ -77,4 +77,24 @@ class UserRepository @Inject constructor(
         }
     }
 
+    suspend fun getProfile(userId: Int): UserDTO {
+        val response = userApiService.getProfile(userId)
+        if (response.isSuccessful)
+            return response.body()!!
+        else {
+            Log.d("error", response.errorBody()?.string().toString())
+            throw Exception("Lỗi khi lấy profile")
+        }
+    }
+
+    suspend fun updateProfile(userDTO: UserDTO): String {
+        val response = userApiService.updateProfile(userDTO)
+        if (response.isSuccessful)
+            return response.body().toString()
+        else {
+            Log.d("error", response.errorBody()?.string().toString())
+            throw Exception(response.errorBody()?.string().toString())
+        }
+    }
+
 }
