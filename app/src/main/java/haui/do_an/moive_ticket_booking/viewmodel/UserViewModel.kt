@@ -289,6 +289,30 @@ class UserViewModel @Inject constructor(
         }
     }
 
+    fun changePassword(userId: Int, newPassword: String){
+        _error.postValue(null)
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val result = userRepository.changePassword(userId, newPassword)
+                _Message.postValue(result)
+            } catch (e: Exception) {
+                _error.postValue(e.message.toString())
+            }
+        }
+    }
+
+    fun getIdByEmail(email: String){
+        _error.postValue(null)
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val result = userRepository.getIdByEmail(email)
+                _Message.postValue(result.toString())
+            } catch (e: Exception) {
+                _error.postValue(e.message.toString())
+            }
+        }
+    }
+
     fun saveCode(code: String, discount: Double){
         CouponCode = code
         this.discound = discount

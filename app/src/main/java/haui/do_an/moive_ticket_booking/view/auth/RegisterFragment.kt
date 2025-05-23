@@ -77,7 +77,9 @@ class RegisterFragment : Fragment() {
             Toast.makeText(requireContext(), "Mật khẩu không khớp", Toast.LENGTH_SHORT).show()
         } else {
             sharedViewModel.saveTermUser(name, password, email)
-//            (activity as AuthActivity).navigateToVerifyOTP()
+            val bundle = Bundle()
+            bundle.putString("function", "register")
+            (activity as AuthActivity).navigateToVerifyOTP(bundle)
             sharedViewModel.createUser()
         }
     }

@@ -94,7 +94,6 @@ class FilmDetailFragment : Fragment() {
 
         clickMoviePoster()
         clickMovieBanner()
-        setupPopupMenu()
         if (role.equals("ADMIN")){
             clickAddShowTime()
         }
@@ -163,6 +162,11 @@ class FilmDetailFragment : Fragment() {
         binding.movieDescription.text = movie.description
 
         setUpBackgroundStatus(movie.status!!)
+        if (movie.status == "COMING_SOON"){
+            binding.bookTicketButton.visibility = View.GONE
+        } else {
+            binding.bookTicketButton.visibility = View.VISIBLE
+        }
         binding.tvMovieStatus.text = when (movie.status) {
             "UNDETERMINED" -> "Chưa xác định"
             "NOW_SHOWING" -> "Đang chiếu"
@@ -203,6 +207,7 @@ class FilmDetailFragment : Fragment() {
         binding.bookTicketButton.text = "Cập nhật"
         binding.btnAddShowtime.visibility = View.VISIBLE
         binding.imLikeMovie.isClickable = false
+        setupPopupMenu()
     }
 
     private fun setUpBackgroundStatus(status: String){
@@ -348,5 +353,9 @@ class FilmDetailFragment : Fragment() {
                 likeMovie = true
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
     }
 }

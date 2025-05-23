@@ -1,5 +1,6 @@
 package haui.do_an.moive_ticket_booking.repository
 
+import android.util.Log
 import haui.do_an.moive_ticket_booking.api.OtpAPIService
 import okhttp3.RequestBody
 import java.util.Objects
@@ -10,6 +11,7 @@ class OtpReponsitory @Inject constructor(
 ) {
     suspend fun getOtp(email: String): String{
         val response = otpApiService.getOTP(email)
+        Log.d("gửi","repon" )
         return response.body().toString()
     }
 

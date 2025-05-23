@@ -1,6 +1,7 @@
 package haui.do_an.moive_ticket_booking.view.base
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,10 +12,13 @@ import haui.do_an.moive_ticket_booking.R
 import haui.do_an.moive_ticket_booking.databinding.FragmentVerifyOTPBinding
 import haui.do_an.moive_ticket_booking.view.auth.AuthActivity
 import haui.do_an.moive_ticket_booking.viewmodel.AuthViewModel
+import haui.do_an.moive_ticket_booking.viewmodel.UserViewModel
+import kotlin.math.log
 
 class VerifyOTPFragment: Fragment() {
 
     private val viewModel: AuthViewModel by activityViewModels()
+    private val viewModelUser: UserViewModel by activityViewModels()
 
     private lateinit var binding: FragmentVerifyOTPBinding
 
@@ -22,11 +26,15 @@ class VerifyOTPFragment: Fragment() {
     private var otpFailed: Int = 0
     private var otpTryCount: Int = 0
 
+    private var function = ""
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        function = arguments?.getString("function").toString()
+        Log.d("VerifyOTPFragment", "function: $function")
         return inflater.inflate(R.layout.fragment_verify_o_t_p, container, false)
     }
 
@@ -42,8 +50,7 @@ class VerifyOTPFragment: Fragment() {
         }
 
         viewModel.registerSuccess.observe(viewLifecycleOwner) { loginSuccess ->
-            Toast.makeText(requireContext(), loginSuccess, Toast.LENGTH_SHORT).show()
-            (activity as AuthActivity).navigateToLogin()
+
         }
 
         binding.confirmButton.setOnClickListener {
@@ -51,10 +58,20 @@ class VerifyOTPFragment: Fragment() {
         }
 
         binding.backButton.setOnClickListener {
-            (activity as AuthActivity).backToRegister()
-        }
+            when(function){
+                "register" -> {
+                    (activity as AuthActivity).backToFragmentBefore()
+                }
+                "forgotPassword" ->{
+                    (activity as AuthActivity).backToFragmentBefore()
+                }
+                else -> {
+                    Toast.makeText(requireContext(), "lỗi", Toast.LENGTH_SHORT).show()
+                    (activity as AuthActivity).backToFragmentBefore()
+                }
+            }
 
-        viewModel.getOTP()
+        }
     }
 
     private fun clickConfirm() {
@@ -72,7 +89,7 @@ class VerifyOTPFragment: Fragment() {
             viewModel.sendOtp(userOTP)
             viewModel.otpConfirm.observe(viewLifecycleOwner) { otpConfirm ->
                 if (otpConfirm == true) {
-                    viewModel.createUser()
+                    setUpfuncion()
                 } else {
                     Toast.makeText(requireContext(), "Mã OTP không đúng hoặc đã hết hạn", Toast.LENGTH_SHORT).show()
                     otpFailed++
@@ -87,6 +104,24 @@ class VerifyOTPFragment: Fragment() {
                         }
                     }
                 }
+            }
+        }
+    }
+
+    private fun setUpfuncion(){
+        when(function){
+            "register" -> {
+                viewModel.createUser()
+            }
+            "forgotPassword" ->{
+                viewModelUser.getIdByEmail(viewModel.email.toString())
+                val bundle = Bundle()
+                bundle.putString("function", "forgotPassword")
+                (activity as AuthActivity).navigateToChangePassword(bundle)
+            }
+            else -> {
+                Toast.makeText(requireContext(), "lỗi", Toast.LENGTH_SHORT).show()
+                (activity as AuthActivity).navigateToLogin()
             }
         }
     }

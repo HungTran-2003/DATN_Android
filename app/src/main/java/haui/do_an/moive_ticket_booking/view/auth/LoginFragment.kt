@@ -71,6 +71,7 @@ class LoginFragment: Fragment() {
         }
 
         saveAccount()
+        clickForgotPassword()
     }
 
     private fun clickRegister(){
@@ -78,7 +79,9 @@ class LoginFragment: Fragment() {
     }
 
     private fun clickForgotPassword(){
-
+        binding.forgotPasswordTextView.setOnClickListener {
+            (activity as AuthActivity).navigateToForgotPassword()
+        }
     }
 
     private fun clickGoogleLogin(){

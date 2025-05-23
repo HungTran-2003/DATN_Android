@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.FragmentManager
 import dagger.hilt.android.AndroidEntryPoint
 import haui.do_an.moive_ticket_booking.R
+import haui.do_an.moive_ticket_booking.view.base.ChangePasswordFragment
 import haui.do_an.moive_ticket_booking.view.base.VerifyOTPFragment
 import haui.do_an.moive_ticket_booking.view.dialog.NetworkErrorDialog
 import haui.do_an.moive_ticket_booking.viewmodel.AuthViewModel
@@ -48,9 +49,26 @@ class AuthActivity : AppCompatActivity(){
         supportFragmentManager.popBackStack("login",FragmentManager.POP_BACK_STACK_INCLUSIVE )  // Quay lại LoginFragment
     }
 
-    fun backToRegister() {
+    fun backToFragmentBefore() {
         supportFragmentManager.popBackStack()  // Quay lại RegisterFragment
     }
+
+    fun navigateToForgotPassword() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, ForgotPasswordFragment())
+            .addToBackStack("login")  // Đưa vào back stack để quay lại được
+            .commit()
+    }
+
+    fun navigateToChangePassword(bundle: Bundle) {
+        val fragment = ChangePasswordFragment()
+        fragment.arguments = bundle
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, fragment)
+            .addToBackStack("")  // Đưa vào back stack để quay lại được
+            .commit()
+    }
+
 
 
 //    private fun checkConnectInternet(){
@@ -72,10 +90,12 @@ class AuthActivity : AppCompatActivity(){
 //        viewModel.checkInternetConnection()
 //    }
 
-    fun navigateToVerifyOTP() {
+    fun navigateToVerifyOTP(bundle: Bundle?) {
+        val fragment = VerifyOTPFragment()
+        fragment.arguments = bundle
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, VerifyOTPFragment())
-            .addToBackStack("register")  // Đưa vào back stack để quay lại được
+            .replace(R.id.fragmentContainer, fragment)
+            .addToBackStack("")  // Đưa vào back stack để quay lại được
             .commit()
     }
 

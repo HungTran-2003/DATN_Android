@@ -1,5 +1,6 @@
 package haui.do_an.moive_ticket_booking.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -46,6 +47,7 @@ class AuthViewModel @Inject constructor(
                     else -> {
                         val result = otpReponsitory.getOtp(email!!)
                         _otpsend.postValue(result)
+                        Log.d("gửi","viewmodel" )
                     }
                 }
             } catch (e: Exception) {
@@ -98,6 +100,12 @@ class AuthViewModel @Inject constructor(
             }
         }
     }
+
+    fun clearMessage(){
+        _errorMessage.postValue("")
+        _otpsend.postValue("")
+    }
+
 
 
 //    private fun hasActiveInternetConnection(): Boolean {

@@ -25,4 +25,11 @@ interface UserAPIService {
     @GET(ApiRoutes.User.GETALL)
     suspend fun getAllUser(): Response<List<UserDTO>>
 
+    @POST(ApiRoutes.User.CHANGE_PASSWORD)
+    suspend fun changePassword(@Query("userId") userId: Int, @Query("newPassword") newPassword: String): Response<String>
+
+    @GET(ApiRoutes.User.GETID)
+    suspend fun getIdByEmail(@Query("email") email: String): Response<Int>
+
+
 }

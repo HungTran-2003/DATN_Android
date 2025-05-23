@@ -1,5 +1,6 @@
 package haui.do_an.moive_ticket_booking.repository
 
+import android.util.Log
 import haui.do_an.moive_ticket_booking.DTO.UserDTO
 import haui.do_an.moive_ticket_booking.api.UserAPIService
 import javax.inject.Inject
@@ -55,5 +56,25 @@ class UserRepository @Inject constructor(
             throw Exception(response.errorBody()?.string().toString())
     }
 
+    suspend fun changePassword(userId: Int, newPassword: String): String {
+
+        val response = userApiService.changePassword(userId, newPassword)
+        if (response.isSuccessful)
+            return response.body().toString()
+        else{
+            Log.d("error", response.errorBody()?.string().toString())
+            throw Exception("Lỗi khi đổi mật khẩu")
+        }
+    }
+
+    suspend fun getIdByEmail(email: String): Int {
+        val response = userApiService.getIdByEmail(email)
+        if (response.isSuccessful)
+            return response.body() ?: 0
+        else {
+            Log.d("error", response.errorBody()?.string().toString())
+            throw Exception("Lỗi khi lấy id")
+        }
+    }
 
 }
